@@ -17,22 +17,23 @@
 
 /* تنسيق الصورة الفنية جوه الهيدر */
 /* تنسيق الهيدر باللون الكحلي الغامق عشان يتماشى مع الصورة */
+/* تنسيق الهيدر للصورة الجديدة */
 .hero { 
-    background-color: #0b1a31; /* لون أزرق غامق جداً زي خلفية صورتك */
-    padding: 30px 0; 
-    margin: 0;
+    background-color: #ffffff; /* لو خلفية صورتك بيضاء غير ده لـ #ffffff */
+    padding: 10px 0; 
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .future-banner {
-    max-width: 100%;   /* تاخد العرض المتاح في الشاشات الصغيرة */
-    width: 900px;      /* عرض ثابت ومناسب للكمبيوتر */
-    height: auto;      /* الحفاظ على الأبعاد */
+    width: 100%;       /* تاخد العرض المتاح */
+    max-width: 1100px; /* كبرنا العرض شوية عشان لو الصورة عريضة */
+    height: auto;      /* الحفاظ على النسبة الأصلية عشان متتمطش */
     display: block;
-    box-shadow: 0 0 50px rgba(0,0,0,0.5); /* ظل ناعم عشان يدمجها مع الخلفية */
+    margin: 0 auto;
+    /* لو الصورة ليها حواف بيضاء، شيل الـ box-shadow ده */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
 }
 
 /* تعديل بسيط للموبايل */
