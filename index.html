@@ -6,46 +6,59 @@
     <title>Future for Programming | م. وجيه فيليب</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
     <style>
-           /* تنسيق قسم الهيدر (استخدام الصورة كخلفية وبدون نصوص مكررة) */
-.hero.bg-with-image {
-    background-image: url('future_hero_bg.jpg'); /* استدعاء الصورة كخلفية */
-    background-size: cover; /* جعل الصورة تغطي المساحة بالكامل */
-    background-position: center center; /* توسط الصورة */
-    color: white; 
-    padding: 180px 0; /* زيادة المسافة العمودية لتناسب حجم البانر */
-    position: relative; /* ضروري لعمل الطبقة الشفافة */
-}
+        body { background-color: #f4f7f6; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        
+        /* تنسيق الهيدر باستخدام الصورة الخلفية */
+        .hero { 
+            background-image: url('future_hero_bg.jpg'); /* تأكد أن اسم الصورة في جيت هاب هو ده */
+            background-size: cover; 
+            background-position: center; 
+            padding: 150px 0; 
+            position: relative; 
+            color: white;
+        }
+        
+        /* طبقة تظليل خفيفة عشان الصورة تظهر أحلى */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
 
-/* تنسيق الطبقة الشفافة الغامقة لضمان مقروئية النص */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* طبقة سوداء بنسبة شفافية 40% (تظليل خفيف) */
-    z-index: 1; /* جعل الطبقة فوق الصورة */
-}
+        .hero .container { position: relative; z-index: 2; }
 
-/* رفع محتوى النص فوق الطبقة الشفافة */
-.z-index-2 {
-    z-index: 2;
-}
+        .section-title { font-weight: bold; color: #1e3c72; margin-bottom: 40px; border-bottom: 3px solid #2a5298; display: inline-block; padding-bottom: 10px; }
+        .carousel-item img { border-radius: 15px; max-height: 500px; object-fit: contain; background: #000; }
+        
+        /* أزرار التواصل العائمة */
+        .float-contact { position: fixed; bottom: 20px; left: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 10px; }
+        .btn-float { border-radius: 50px; padding: 10px 20px; color: white; text-decoration: none; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: 0.3s; display: flex; align-items: center; gap: 10px; border: none; }
+        .btn-whatsapp { background-color: #25d366; }
+        .btn-email { background-color: #ea4335; }
+        .btn-float:hover { transform: scale(1.05); color: white; }
+
+        .card-program { border: none; border-radius: 15px; transition: 0.3s; text-decoration: none !important; color: inherit; }
+        .card-program:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    </style>
 </head>
 <body>
-        <header class="hero text-center bg-with-image position-relative">
-            <div class="overlay"></div> 
-            <div class="container z-index-2 position-relative d-flex flex-column align-items-center">
-                </div>
-        </header>
-    <section class="container my-5">
-        <h2 class="section-title text-center">معرض صور برنامج Future Sales 📸</h2>
+
+    <header class="hero text-center">
+        <div class="container">
+            <div style="height: 100px;"></div> 
+        </div>
+    </header>
+
+    <section class="container my-5 text-center">
+        <h2 class="section-title">📸 معرض صور برنامج Future Sales</h2>
         <div id="projectGallery" class="carousel slide shadow-lg rounded" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="app_screenshot.jpg" class="d-block w-100" alt="الشاشة الرئيسية">
                 </div>
-                </div>
+            </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#projectGallery" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </button>
@@ -55,40 +68,29 @@
         </div>
     </section>
 
-    <section class="container my-5 bg-white p-4 rounded shadow-sm">
-        <h2 class="section-title text-center">شرح الفيديو للبرنامج 🎥</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-                </div>
-                <p class="text-center mt-3 text-muted small">* فيديو توضيحي لمميزات النظام وكيفية الربط مع SQL Server</p>
-            </div>
-        </div>
-    </section>
+    <section class="container my-5 text-center">
+        <h2 class="section-title">📂 برامجنا الأخرى</h2>
+        <div class="row g-4">
             <div class="col-md-4">
-                <a href="clinics.html" style="text-decoration: none; color: inherit;">
-                    <div class="card card-program p-4 shadow-sm bg-white text-center h-100">
-                        <div class="h1">🏥</div>
-                        <h4 class="fw-bold text-primary">نظام إدارة العيادات</h4>
-                        <p class="text-muted">نظام متكامل لتنظيم المرضى والروشتات..</p>
-                        <span class="badge bg-primary">اضغط للتفاصيل 🔍</span>
-                    </div>
+                <a href="clinics.html" class="card card-program p-4 shadow-sm bg-white d-block">
+                    <div class="h1">🏥</div>
+                    <h4>نظام إدارة العيادات</h4>
+                    <p class="text-muted">اضغط للتفاصيل والشرح..</p>
                 </a>
             </div>
             <div class="col-md-4">
-                <div class="card card-program p-4 shadow-sm bg-white">
+                <a href="pharmacy.html" class="card card-program p-4 shadow-sm bg-white d-block">
                     <div class="h1">💊</div>
                     <h4>برنامج الصيدليات</h4>
-                    <p class="text-muted">إدارة المخزون، تنبيهات الإكسباير، وفواتير المبيعات.</p>
-                </div>
+                    <p class="text-muted">إدارة المخزون وفواتير المبيعات.</p>
+                </a>
             </div>
             <div class="col-md-4">
-                <div class="card card-program p-4 shadow-sm bg-white">
+                <a href="accounting.html" class="card card-program p-4 shadow-sm bg-white d-block">
                     <div class="h1">🏢</div>
                     <h4>نظام الحسابات العامة</h4>
-                    <p class="text-muted">إدارة المصاريف، المرتبات، والقيود المحاسبية.</p>
-                </div>
+                    <p class="text-muted">إدارة المصاريف والقيود المحاسبية.</p>
+                </a>
             </div>
         </div>
     </section>
@@ -97,16 +99,13 @@
         <a href="mailto:wagihphelep@gmail.com" class="btn-float btn-email">
             <span>✉️ راسلني عبر الإيميل</span>
         </a>
-        <a href="https://wa.me/201282432219?text=بشمهندس%20وجيه%20محتاج%20استفسر%20عن%20برامجكم" target="_blank" class="btn-float btn-whatsapp">
+        <a href="https://wa.me/201282432219" target="_blank" class="btn-float btn-whatsapp">
             <span>💬 واتساب مباشر</span>
         </a>
     </div>
 
-    <footer class="bg-dark text-white py-5 mt-5">
-        <div class="container text-center">
-            <p>جميع الحقوق محفوظة © 2026 | م. وجيه فيليب</p>
-            <p class="small text-secondary">البريد الرسمي: wagihphelep@gmail.com</p>
-        </div>
+    <footer class="bg-dark text-white py-4 text-center mt-5">
+        <p>جميع الحقوق محفوظة © 2026 | م. وجيه فيليب</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
